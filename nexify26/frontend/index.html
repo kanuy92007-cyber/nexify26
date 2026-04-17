@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediClear & Rescue</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="logo-wrap">
+        <h1>MediClear & Rescue</h1>
+        <p class="subtitle">Medical Report Simplifier & Emergency Response</p>
+      </div>
+      <nav>
+        <a href="./index.html" class="active">Home</a>
+        <a href="./upload.html">Upload</a>
+        <a href="./dashboard.html">Dashboard</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section id="apiHealthBanner" class="api-health-banner loading">
+        Checking backend connection...
+      </section>
+
+      <section class="hero card">
+        <div>
+          <span class="pill">AI-Powered Health Clarity</span>
+          <h2>Understand reports quickly, get rescue faster.</h2>
+          <p>
+            Upload a medical report image or PDF and receive a simplified summary,
+            key findings, glossary, and emergency-ready handover.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="./upload.html">Upload Report</a>
+            <a class="btn ghost" href="./dashboard.html">View Demo Dashboard</a>
+          </div>
+        </div>
+        <aside class="hero-side">
+          <h3>What you get</h3>
+          <ul>
+            <li>Plain-language medical explanation</li>
+            <li>Glossary of complex clinical terms</li>
+            <li>Emergency SOS with live ETA simulation</li>
+            <li>Paramedic handover summary</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="grid-3">
+        <article class="card">
+          <h3>1. Upload</h3>
+          <p>Select a photo or PDF report.</p>
+        </article>
+        <article class="card">
+          <h3>2. Simplify</h3>
+          <p>Mock OCR + AI transform jargon into plain language.</p>
+        </article>
+        <article class="card">
+          <h3>3. Rescue</h3>
+          <p>Tap SOS to trigger an ambulance tracking simulation.</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

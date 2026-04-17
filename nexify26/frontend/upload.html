@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Report | MediClear & Rescue</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="logo-wrap">
+        <h1>MediClear & Rescue</h1>
+        <p class="subtitle">Medical Report Simplifier & Emergency Response</p>
+      </div>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./upload.html" class="active">Upload</a>
+        <a href="./dashboard.html">Dashboard</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section id="apiHealthBanner" class="api-health-banner loading">
+        Checking backend connection...
+      </section>
+
+      <section class="card">
+        <h2>Upload Medical Report</h2>
+        <p class="muted">
+          Supported formats: PNG, JPG, JPEG, PDF. This MVP uses mock OCR and AI
+          simplification.
+        </p>
+
+        <form id="uploadForm" class="form-grid">
+          <div class="field full">
+            <label for="reportFile">Medical Report File</label>
+            <input
+              id="reportFile"
+              name="reportFile"
+              type="file"
+              accept=".png,.jpg,.jpeg,.pdf,image/png,image/jpeg,application/pdf"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="patientName">Patient Name</label>
+            <input id="patientName" name="patientName" type="text" required />
+          </div>
+
+          <div class="field">
+            <label for="patientAge">Age</label>
+            <input id="patientAge" name="patientAge" type="number" min="0" />
+          </div>
+
+          <div class="field full">
+            <label for="allergies">Allergies</label>
+            <input
+              id="allergies"
+              name="allergies"
+              type="text"
+              placeholder="e.g., Penicillin, Peanuts"
+            />
+          </div>
+
+          <div class="field full">
+            <label for="history">Relevant Medical History</label>
+            <textarea
+              id="history"
+              name="history"
+              rows="4"
+              placeholder="e.g., Asthma, hypertension, prior surgeries"
+            ></textarea>
+          </div>
+
+          <div class="field full">
+            <button type="submit" class="btn primary">
+              Process Report
+            </button>
+          </div>
+        </form>
+
+        <div id="uploadPreview" class="preview hidden"></div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

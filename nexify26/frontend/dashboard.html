@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | MediClear & Rescue</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="logo-wrap">
+        <h1>MediClear & Rescue</h1>
+        <p class="subtitle">Medical Report Simplifier & Emergency Response</p>
+      </div>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./upload.html">Upload</a>
+        <a href="./dashboard.html" class="active">Dashboard</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section id="apiHealthBanner" class="api-health-banner loading">
+        Checking backend connection...
+      </section>
+
+      <section class="card">
+        <div class="row-between">
+          <h2>Simplified Report Dashboard</h2>
+          <a href="./upload.html" class="btn ghost">Upload New Report</a>
+        </div>
+        <p id="reportMeta" class="muted"></p>
+      </section>
+
+      <section class="grid-2">
+        <article class="card">
+          <h3>What This Means</h3>
+          <p id="plainMeaning"></p>
+
+          <h3>Key Findings</h3>
+          <ul id="keyFindings"></ul>
+        </article>
+
+        <article class="card">
+          <h3>Next Steps</h3>
+          <ul id="nextSteps"></ul>
+
+          <h3>Contextual Glossary</h3>
+          <ul id="glossary"></ul>
+        </article>
+      </section>
+
+      <section class="grid-2">
+        <article class="card emergency-card">
+          <h3>Emergency Rescue Suite</h3>
+          <p>
+            If the patient is unwell, trigger SOS. Dispatch receives an essential
+            handover summary and ambulance tracking starts.
+          </p>
+          <button id="sosButton" class="btn danger">SOS: Call Ambulance</button>
+
+          <div id="trackingBox" class="tracking hidden">
+            <p id="trackingStatus" class="status"></p>
+            <div class="progress-track">
+              <div id="ambulanceProgress" class="progress-fill"></div>
+            </div>
+            <p id="etaText"></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Paramedic Handover Summary</h3>
+          <div id="handoverSummary" class="handover"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
