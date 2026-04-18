@@ -4,6 +4,8 @@ Mediclear is an AI-powered medical healthcare platform designed to bridge the ga
 
 ![Mediclear Preview](public/hero.png)
 
+
+
 ## 🚀 Features
 
 *   **Intelligent Report Analysis**: Upload your medical reports (PDF or images). The app parses the text/images locally and uses Gemini AI to extract critical markers, reference ranges, and abnormal parameters.
