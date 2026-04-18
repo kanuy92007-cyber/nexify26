@@ -1,109 +1,70 @@
-# MediClear & Rescue
+# Mediclear 🏥✨
 
-Medical report simplifier and emergency response MVP.
+Mediclear is an AI-powered medical healthcare platform designed to bridge the gap between complex medical reports and patient understanding. By leveraging the power of Google Gemini AI, Mediclear transforms complicated lab results into simple, actionable, and conversational health insights.
 
-MediClear & Rescue bridges complex clinical language and patient understanding. It also includes an SOS flow that prepares emergency context and tracks dispatch progress.
+![Mediclear Preview](public/hero.png)
 
-## Current Architecture
+## 🚀 Features
 
-- `server.js`: main backend entry (Express server, CORS, JSON middleware, logging, error handling)
-- `routes/`: API route modules
-- `frontend/`: static web pages (`index.html`, `upload.html`, `dashboard.html`, `style.css`, `script.js`)
+*   **Intelligent Report Analysis**: Upload your medical reports (PDF or images). The app parses the text/images locally and uses Gemini AI to extract critical markers, reference ranges, and abnormal parameters.
+*   **Plain English Summaries**: Medical jargon is translated into easy-to-understand language.
+*   **Nearby Hospitals & Specialist Recommendations**: If your report contains abnormal markers (e.g., high cholesterol), Mediclear automatically maps them to the right specialist (e.g., Cardiologist) and finds the nearest hospitals within a 10km radius using geolocation and the OpenStreetMap Overpass API.
+*   **Emergency Quick Actions**: Persistent quick-action bar for instant access to national ambulance (102) and emergency (112) services, as well as turn-by-turn Google Maps directions.
+*   **Top Indian Doctors**: Curated suggestions of famous Indian doctors with direct links to book appointments via Practo.
+*   **Accessibility First**: Built-in, highly optimized Text-to-Speech (TTS) engine that reads your report out loud in a clear, crisp voice.
+*   **Export & Share**: Easily download your analyzed report as a branded, professional PDF or share it across platforms (WhatsApp, Email, Clipboard) using the native Web Share API.
+*   **Fully Serverless (Netlify Ready)**: Completely runs in the browser. Uses LocalStorage to manage user authentication and report history, making it perfectly deployable on static hosting services like Netlify.
 
-## Features Included
+## 🛠 Technology Stack
 
-### AI Report Simplification (Mocked)
-- Upload report files from frontend flow
-- Mock OCR extraction endpoint
-- Simplification endpoint that returns:
-  - plain meaning
-  - key findings
-  - next steps
-  - glossary
+*   **Frontend**: React (Vite), Framer Motion (for dynamic animations)
+*   **Styling**: Vanilla CSS (Custom Design System with Glassmorphism)
+*   **Maps & Routing**: React Leaflet, OpenStreetMap Overpass API
+*   **AI Integration**: Google Generative AI (Gemini Flash-Latest Vision Model)
+*   **PDF Parsing & Generation**: `pdfjs-dist` (for reading PDFs), `jspdf` (for exporting reports)
+*   **Icons**: Lucide React
 
-### Emergency Rescue (Mocked)
-- SOS dispatch endpoint
-- Live tracking endpoint with ETA/progress simulation
-- Paramedic-style handover summary on dashboard
+## 📦 Local Installation & Setup
 
-## Prerequisites
+1. **Clone the repository** (if applicable) or navigate to the project directory:
+   ```bash
+   cd mediclear
+   ```
 
-- Node.js 16+ (Node 18+ recommended)
-- npm
+2. **Install the dependencies**:
+   ```bash
+   npm install
+   ```
 
-## Setup
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-1) Install dependencies:
+4. **Build for production**:
+   ```bash
+   npm run build
+   ```
 
-```bash
-npm install
-```
+## 🌐 Deployment (Netlify)
 
-2) Create environment file:
+Mediclear is configured to be 100% serverless. To deploy to Netlify:
+1. Push this codebase to a GitHub repository.
+2. Go to your Netlify Dashboard and click **Add new site** -> **Import an existing project**.
+3. Select your GitHub repository.
+4. Netlify will automatically detect Vite. Use the following build settings:
+   *   **Build command:** `npm run build`
+   *   **Publish directory:** `dist`
+5. Click **Deploy Site**. Your app will be live and fully functional globally!
 
-```bash
-cp .env.example .env
-```
+## ⚠️ Disclaimer
 
-3) Start backend server:
+**Mediclear is an AI tool intended for informational and educational purposes only.** It does not provide medical advice, diagnosis, or treatment. Always seek the advice of a qualified healthcare provider or physician with any questions regarding a medical condition. Do not disregard professional medical advice or delay in seeking it because of something you have read on this application.
 
-```bash
-npm run dev
-```
+## 👨‍💻 Contributing
 
-Backend runs on:
+Feel free to open issues and pull requests if you want to contribute to Mediclear!
 
-- `http://localhost:5000`
+## 📄 License
 
-## Run Frontend
-
-Serve `frontend/` using any static server (example):
-
-```bash
-python3 -m http.server 4173
-```
-
-Then open:
-
-- `http://127.0.0.1:4173/frontend/index.html`
-
-## Frontend API Base URL
-
-The frontend reads API base URL from localStorage key `mediclear_api_base`.
-
-Set it once in browser console:
-
-```js
-localStorage.setItem("mediclear_api_base", "http://localhost:5000");
-location.reload();
-```
-
-## API Endpoints
-
-### Core Endpoints
-
-- `GET /health` -> `{ "status": "ok" }`
-- `POST /upload` (file or text; mock success response)
-- `POST /simplify` (medical text input; mock simplified output)
-- `POST /sos` (emergency payload; mock success response)
-
-### Frontend Compatibility Endpoints
-
-These are kept so existing frontend code works unchanged:
-
-- `POST /api/ocr`
-- `POST /api/simplify`
-- `POST /api/emergency/dispatch`
-- `GET /api/emergency/track?dispatchId=<id>`
-
-## Quick Verification
-
-1) Open Home page and confirm backend health banner is green.
-2) Upload a sample file and process report.
-3) Confirm dashboard renders simplified data.
-4) Trigger SOS and confirm ETA/progress updates.
-
-## Notes
-
-- Current AI/OCR/maps behavior is mocked for MVP speed.
-- Replace mocked responses with real providers (Gemini/OpenAI + Vision/Textract + Maps) in next phase.
+&copy; 2024 Mediclear AI. All rights reserved.
