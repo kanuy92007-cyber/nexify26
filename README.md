@@ -69,4 +69,4 @@ Feel free to open issues and pull requests if you want to contribute to Mediclea
 
 ## 📄 License
 
-&copy; 2024 Mediclear AI. All rights reserved.
+&copy; 2026 Mediclear AI.
